@@ -4,6 +4,8 @@ import io.github.pashazz.walker.db.DataFillerService;
 import io.github.pashazz.walker.entities.Point;
 import io.github.pashazz.walker.entities.PointType;
 import io.github.pashazz.walker.entities.Walk;
+import org.apache.logging.log4j.core.Core;
+import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +20,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.transaction.Transactional;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -88,8 +92,14 @@ public class PointDaoTest {
 
     @Test
     public void getStopPointForWalk() {
-
         Point stop = pointDao.getStop(walk);
         assertEquals(stop, two);
+    }
+
+    @Test
+    public void getPointsForWalk() {
+        List<Point> points = pointDao.getPoints(walk);
+        assertThat(points, CoreMatchers.hasItems(one, two));
+        assertEquals(2, points.size());
     }
 }

@@ -7,7 +7,8 @@ import javax.persistence.*;
 
 @NamedQueries({
         @NamedQuery(name = "point.start.by.walkId", query = "select p from Point p where p.walk.id=:walkId and p.type='START'"),
-        @NamedQuery(name = "point.stop.by.walkId", query = "select p from Point p where p.walk.id=:walkId and p.type='STOP'")
+        @NamedQuery(name = "point.stop.by.walkId", query = "select p from Point p where p.walk.id=:walkId and p.type='STOP'"),
+        @NamedQuery(name = "points.by.walkId", query = "select p from Point p where p.walk.id=:walkId")
 })
 
 @Entity

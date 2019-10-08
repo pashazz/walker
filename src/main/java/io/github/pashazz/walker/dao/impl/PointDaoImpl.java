@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Repository
 public class PointDaoImpl implements PointDaoMethods {
@@ -30,6 +31,17 @@ public class PointDaoImpl implements PointDaoMethods {
     public Point getStop(Walk walk) {
         final String qText = "point.stop.by.walkId";
         return executeNamedQueryOnWalk(walk, qText);
+    }
+
+    @Override
+    public List<Point> getPoints(Walk walk) {
+        String text = "points.by.walkId";
+        LOG.trace("executing Query {} with id {}", text, walk.getId());
+        var query = this.em.createNamedQuery(text, Point.class).
+                setParameter("walkId", walk.getId());
+        var items = query.getResultList();
+        LOG.trace("result list: {}", items);
+        return items;
     }
 
     private Point executeNamedQueryOnWalk(Walk walk, String text) {
