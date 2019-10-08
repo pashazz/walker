@@ -18,7 +18,7 @@ public class Walk {
 
     public Walk () {}
 
-    public Walk(String name, Point start) {
+    public Walk(String name) {
         this.name = name;
     }
 
