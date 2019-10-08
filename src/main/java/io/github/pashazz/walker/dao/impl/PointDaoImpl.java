@@ -1,6 +1,7 @@
 package io.github.pashazz.walker.dao.impl;
 
 import io.github.pashazz.walker.dao.PointDao;
+import io.github.pashazz.walker.dao.PointDaoMethods;
 import io.github.pashazz.walker.dao.WalkDao;
 import io.github.pashazz.walker.entities.Point;
 import io.github.pashazz.walker.entities.Walk;
@@ -13,7 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-public class PointDaoImpl implements PointDao {
+public class PointDaoImpl implements PointDaoMethods {
     private static final Logger LOG = LogManager.getLogger(PointDaoImpl.class);
 
     @PersistenceContext //org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor
