@@ -13,6 +13,10 @@ public class Walk {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     private String name;
 
 
@@ -24,6 +28,10 @@ public class Walk {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 

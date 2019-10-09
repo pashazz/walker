@@ -2,6 +2,9 @@ package io.github.pashazz.walker.entities;
 
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 
@@ -30,6 +33,7 @@ public class Point {
 
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_point_walk"))
+    @OnDelete(action = OnDeleteAction.CASCADE) // Remove all Points on Walk removal
     private Walk walk;
 
     public Point () {}
