@@ -42,7 +42,7 @@ public class DataFillerService {
 
 
         LOG.debug("PostConstruct: Filling new data {}", walkName);
-        Walk testWalk = new Walk("Moscow Center Walk");
+        Walk testWalk = new Walk(false, "Moscow Center Walk");
         walkDao.save(testWalk);
         Point one = new Point(testWalk, 55.759567, 37.628462, PointType.START);
         pointDao.save(one);

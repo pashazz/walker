@@ -1,25 +1,16 @@
 package io.github.pashazz.walker.dao;
 
-import io.github.pashazz.walker.db.DataFillerService;
 import io.github.pashazz.walker.entities.Point;
 import io.github.pashazz.walker.entities.PointType;
 import io.github.pashazz.walker.entities.Walk;
-import org.apache.logging.log4j.core.Core;
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import javax.transaction.Transactional;
 
 import java.util.List;
 
@@ -55,7 +46,7 @@ public class PointDaoTest {
 
     @Before
     public void setUp () {
-        walk = new Walk("Moscow Walk");
+        walk = new Walk(false, "Moscow Walk");
         walkDao.save(walk);
 
         one = new Point(walk, 55.759567, 37.628462, PointType.START);

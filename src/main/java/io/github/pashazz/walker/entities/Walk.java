@@ -17,12 +17,15 @@ public class Walk {
         this.id = id;
     }
 
+    private  boolean finished;
+
     private String name;
 
 
     public Walk () {}
 
     public Walk(String name) {
+
         this.name = name;
     }
 
@@ -32,6 +35,14 @@ public class Walk {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 }
 
